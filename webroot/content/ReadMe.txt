@@ -1,0 +1,1 @@
+Dans ce dossier sont stockés les fichiers uploadés par l'utilisateur.
