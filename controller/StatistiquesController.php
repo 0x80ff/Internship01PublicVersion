@@ -30,8 +30,8 @@ class StatistiquesController extends Controller{
 	function Affichage($mois){
 		$this->LoadModel('Statistiques');
 		$this->statistiquesCout = $this->Statistiques->getCout($mois);
-		$this->statistiquesNb = $this->Statistiques->getNb($mois);
-		$this->contenu = $this->Statistiques->AppelDepassement($mois);
+		$this->statistiquesNb 	= $this->Statistiques->getNb($mois);
+		$this->contenu 			= $this->Statistiques->AppelDepassement($mois);
 		$this->set('contenu', $this->contenu);
 		if(empty($this->statistiquesCout)){
 		$this->e404('Page introuvable');

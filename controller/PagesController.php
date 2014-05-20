@@ -1,6 +1,5 @@
 <?php 
 class PagesController extends Controller{
-	
 	function view($id){
 		 $this->loadModel('Communication');
 		 $communication = $this->Communication->findFirst(array(

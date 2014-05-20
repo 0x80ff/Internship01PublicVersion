@@ -1,11 +1,12 @@
 <?php
 class SessionController extends Controller{
 
-	public $uploadfile = null;
-	public $message = null;
-	public $uploadContent = null;
-	public $contenuAbonnes = null;
-	public $contenuContent = null;
+	//Public variables declaration:
+	public $uploadfile 		= null;
+	public $message 		= null;
+	public $uploadContent 	= null;
+	public $contenuAbonnes 	= null;
+	public $contenuContent 	= null;
 	public $contenuServices = null;
 
 	public function Connection(){
@@ -15,7 +16,7 @@ class SessionController extends Controller{
 
 			// Validation des champs suivant les règles
 		    $login = $_POST['login'];
-		    $pass =  $_POST['pass'];
+		    $pass  =  $_POST['pass'];
 
 		    // On veut utiliser le modèle 
 		    $this->loadModel('Session');
@@ -33,7 +34,6 @@ class SessionController extends Controller{
 		        // On réaffiche le formulaire de connexion
 		        $this->render('loginForm');
     		}
-     
  		}else{
 		    // On réaffiche le formulaire de connexion
 		    $this->render('loginForm');
@@ -135,10 +135,11 @@ class SessionController extends Controller{
 
 			if($Table == "Abonne"){
 				if(isset($_POST['ID'])){
-					$ID = $_POST['ID'];
-					$Nom = $_POST['Nom'];
-					$Num = $_POST['Num'];
-					$IDService = $_POST['IDService'];
+					$ID 		= $_POST['ID'];
+					$Nom 		= $_POST['Nom'];
+					$Num 		= $_POST['Num'];
+					$IDService 	= $_POST['IDService'];
+
 					$this->loadModel('Abonnes');
 					$this->Abonnes->Update($ID, $Nom, $Num, $IDService);
 					$this->message = $this->setMessage('La modification a été effectuée avec succès!', 'Succès!', 'success');
@@ -156,10 +157,11 @@ class SessionController extends Controller{
 			}
 			elseif($Table == "Contenu"){
 				if(isset($_POST['ID'])){
-					$ID = $_POST['ID'];
-					$Nom = $_POST['Nom'];
-					$Path = $_POST['Path'];
+					$ID 	= $_POST['ID'];
+					$Nom 	= $_POST['Nom'];
+					$Path 	= $_POST['Path'];
 					$Online = $_POST['Online'];
+
 					$this->loadModel('Contenu');
 					$this->Contenu->Update($ID, $Nom, $Path, $Online);
 					$this->message = $this->setMessage('La modification a été effectuée avec succès!', 'Succès!', 'success');
@@ -177,10 +179,11 @@ class SessionController extends Controller{
 			}
 			elseif($Table == "Service"){
 				if(isset($_POST['ID'])){
-					$ID = $_POST['ID'];
-					$Nom = $_POST['Nom'];
-					$Site = $_POST['Site'];
+					$ID 	 = $_POST['ID'];
+					$Nom 	 = $_POST['Nom'];
+					$Site 	 = $_POST['Site'];
 					$Attache = $_POST['Attache'];
+
 					$this->loadModel('Services');
 					$this->Services->Update($ID, $Nom, $Site, $Attache);
 					$this->message = $this->setMessage('La modification a été effectuée avec succès!', 'Succès!', 'success');
@@ -278,9 +281,9 @@ class SessionController extends Controller{
 			$type = $_POST['Type'];
 
 			if($type == "Service"){
-				$Nom = $_POST['Nom'];
-				$Site = $_POST['Site'];
-				$Attache = $_POST['Attache'];
+				$Nom 		= $_POST['Nom'];
+				$Site 		= $_POST['Site'];
+				$Attache 	= $_POST['Attache'];
 
 				$this->loadModel('Services');
 				$this->Services->newService($Nom, $Site, $Attache);
@@ -291,9 +294,9 @@ class SessionController extends Controller{
 				$this->render('addService');
 			}
 			elseif($type == "Abonne"){
-				$NomA = $_POST['Nom'];
-				$Numero = $_POST['Numero'];
-				$ServiceA = $_POST['Service'];
+				$NomA 		= $_POST['Nom'];
+				$Numero 	= $_POST['Numero'];
+				$ServiceA 	= $_POST['Service'];
 
 				$this->loadModel('Abonnes');
 				$this->loadModel('Services');
